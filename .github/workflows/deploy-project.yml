@@ -24,4 +24,4 @@ jobs:
       - name: Run Maven
         run: mvn --settings settings.xml deploy
         env:
-          PACKAGES_DATASTRUCTURES_TOKEN: ${{secrets.PACKAGES_DATASTRUCTURES_TOKEN}}
+          PACKAGES_DATASTRUCTURES_TOKEN: ${{secrets.PACKAGES_HTML_TOKEN}}
