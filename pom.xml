@@ -9,7 +9,6 @@
   <name>HTML</name>
 
   <modules>
-    <module>html.features</module>
     <module>html.core</module>
   </modules>
 
