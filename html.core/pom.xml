@@ -27,8 +27,6 @@
             </goals>
             <phase>process-classes</phase>
           </execution>
-          <!-- Configure extra execution of 'manifest' in process-classes phase 
-						to make sure SCR metadata is generated before unit test runs -->
           <execution>
             <id>scr-metadata</id>
             <goals>
@@ -43,9 +41,12 @@
           <exportScr>true</exportScr>
           <instructions>
             <Import-Package>!javax.annotation, *</Import-Package>
-            <!-- Enable processing of OSGI DS component annotations -->
+            <Export-Package>io.github.vm.patlego.html.parser.impl.*, 
+                    io.github.vm.patlego.html.*, 
+                    io.github.vm.patlego.html.filter.*, 
+                    io.github.vm.patlego.html.Parseable.*
+            </Export-Package>
             <_dsannotations>*</_dsannotations>
-            <!-- Enable processing of OSGI metatype annotations -->
             <_metatypeannotations>*</_metatypeannotations>
           </instructions>
         </configuration>
@@ -54,6 +55,18 @@
   </build>
 
   <dependencies>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.cmpn</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.annotation</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
@@ -70,6 +83,21 @@
       <groupId>org.mockito</groupId>
       <artifactId>mockito-inline</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.github.spullara.mustache.java</groupId>
+      <artifactId>compiler</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency> <!--https://mvnrepository.com/artifact/org.slf4j/slf4j-simple-->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+    </dependency>
   </dependencies>
-
 </project>

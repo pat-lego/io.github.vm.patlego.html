@@ -1,8 +1,8 @@
-package ioio.github.vm.patlego.html;
+package io.github.vm.patlego.html;
 
 public interface Parseable {
     
-    public <T> T bean();
+    public Object bean();
 
     public String id();
 
