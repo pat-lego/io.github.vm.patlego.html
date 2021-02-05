@@ -84,9 +84,9 @@
         <scope>test</scope>
       </dependency>
       <dependency>
-        <groupId>com.github.spullara.mustache.java</groupId>
-        <artifactId>compiler</artifactId>
-        <version>${mustache.compiler.version}</version>
+        <groupId>com.github.jknack</groupId>
+        <artifactId>handlebars</artifactId>
+        <version>4.2.0</version>
         <scope>provided</scope>
       </dependency>
       <dependency>

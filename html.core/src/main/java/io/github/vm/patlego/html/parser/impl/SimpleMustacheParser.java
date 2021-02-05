@@ -1,12 +1,10 @@
 package io.github.vm.patlego.html.parser.impl;
 
 import java.io.IOException;
-import java.io.StringWriter;
-import java.io.Writer;
 
-import com.github.mustachejava.DefaultMustacheFactory;
-import com.github.mustachejava.Mustache;
-import com.github.mustachejava.MustacheFactory;
+import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.io.TemplateLoader;
 
 import io.github.vm.patlego.html.Parseable;
 import io.github.vm.patlego.html.parser.MustacheParser;
@@ -14,13 +12,10 @@ import io.github.vm.patlego.html.parser.MustacheParser;
 public class SimpleMustacheParser implements MustacheParser {
 
     @Override
-    public String parse(String template, Parseable context) throws IOException {
-        MustacheFactory mf = new DefaultMustacheFactory();
-        Mustache m = mf.compile(template);
-
-        Writer writer = new StringWriter();
-        m.execute(writer, context.bean()).flush();
-        return writer.toString();
+    public String parse(String template, Parseable context, TemplateLoader loader) throws IOException {
+        Handlebars handlebars = new Handlebars(loader);
+        Template compiledTemplate = handlebars.compile(template); // resolved to: /WEB-INF/hello.html
+        return compiledTemplate.apply(context.bean());
     }
-    
+
 }
