@@ -8,7 +8,6 @@ import com.github.jknack.handlebars.io.TemplateLoader;
 
 import io.github.vm.patlego.html.Parseable;
 import io.github.vm.patlego.html.exceptions.ParseableLoaderException;
-import io.github.vm.patlego.html.parser.ParseableLoader;
 
 public class SimpleMustacheParser {
 
