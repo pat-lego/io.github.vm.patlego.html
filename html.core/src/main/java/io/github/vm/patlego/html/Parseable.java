@@ -4,6 +4,4 @@ public interface Parseable {
     
     public Object bean();
 
-    public String id();
-
 }

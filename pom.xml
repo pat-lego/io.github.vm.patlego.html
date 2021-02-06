@@ -107,6 +107,12 @@
         <version>1.7.30</version>
         <scope>test</scope>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+      <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>1.9.4</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 </project> 

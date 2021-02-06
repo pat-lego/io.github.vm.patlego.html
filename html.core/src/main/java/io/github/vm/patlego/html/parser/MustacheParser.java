@@ -1,13 +1,12 @@
 package io.github.vm.patlego.html.parser;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 import com.github.jknack.handlebars.io.TemplateLoader;
 
-import io.github.vm.patlego.html.Parseable;
-
 public interface MustacheParser {
 
-    public String parse(String template, Parseable context, TemplateLoader loader) throws IOException;
+    public String parse(String template, TemplateLoader loader, ParseableLoader parseable) throws IOException, IllegalAccessException, InvocationTargetException;
     
 }
