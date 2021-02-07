@@ -2,6 +2,7 @@ package io.github.vm.patlego.html.filter;
 
 import java.io.IOException;
 
+import javax.annotation.Nonnull;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -32,7 +33,7 @@ public abstract class AbstractFilter implements Filter {
 
     }
 
-    public abstract void template(HttpServletRequest request, HttpServletResponse response);
+    public abstract void template(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response);
 
     @Override
     public void destroy() {
