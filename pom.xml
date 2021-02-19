@@ -4,20 +4,21 @@
   <groupId>io.github.vm.patlego.html</groupId>
   <artifactId>html</artifactId>
   <version>1.0-SNAPSHOT</version>
+  
   <packaging>pom</packaging>
-
+  
   <name>HTML</name>
-
   <modules>
     <module>html.core</module>
+    <module>html.examples</module>
   </modules>
-
+  
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <handlebars.compiler.version>4.2.0</handlebars.compiler.version>
   </properties>
-
+  
   <distributionManagement>
     <repository>
       <id>patlego-html</id>
@@ -25,7 +26,7 @@
       <url>https://maven.pkg.github.com/pat-lego/io.github.vm.patlego.html</url>
     </repository>
   </distributionManagement>
-
+  
   <build>
     <pluginManagement>
       <plugins>
@@ -38,7 +39,6 @@
       </plugins>
     </pluginManagement>
   </build>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
