@@ -23,7 +23,7 @@ public class SimpleFilter extends AbstractFilter {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final String CONTEXT_PATH = "/html/sample/app/";
+    private final String CONTEXT_PATH = "/html/examples/simple/";
     private final String HTML_EXTENSION = ".html";
 
     @Override
