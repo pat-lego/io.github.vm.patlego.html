@@ -33,6 +33,10 @@ public class SimpleFilter extends AbstractFilter {
             URL requestURL = new URL(request.getRequestURL().toString());
             String path = requestURL.getPath().replace(CONTEXT_PATH, StringUtils.EMPTY).replace(HTML_EXTENSION, StringUtils.EMPTY);
 
+            if (path.equals(StringUtils.EMPTY)) {
+                path = "index";
+            }
+
             BundleContext context = (BundleContext) request.getServletContext().getAttribute("osgi-bundlecontext");
             
             ParseableLoader parseableLoader = new BundleContextParseableLoader(context);
