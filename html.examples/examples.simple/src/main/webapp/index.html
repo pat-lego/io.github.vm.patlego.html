@@ -4,24 +4,36 @@
 <head>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>{{head.title}}</title>
-    
+
     <meta charset="UTF-8">
 
     {{#head.metadata}}
-        <meta name="{{key}}" content="{{value}}">
+    <meta name="{{key}}" content="{{value}}">
     {{/head.metadata}}
 
     {{#eq head.cacheControl true}}
-        <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
     {{/eq}}
 </head>
 
 <body>
-    <!-- Header of the page -->
-    <div>
-        {{>WEB-INF/components/header}}
+    <div class="flex flex-col h-screen">
+        <!-- Header of the page -->
+        <div class="header">
+            {{>WEB-INF/components/header}}
+        </div>
+        <div class="flex-grow main">
+            <main>
+                Pat was here!
+            </main>
+        </div>
+        <!-- Footer of the page -->
+        <div class="footer">
+            {{>WEB-INF/components/footer}}
+        </div>
     </div>
 </body>
 
