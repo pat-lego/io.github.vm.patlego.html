@@ -4,7 +4,7 @@ import org.osgi.service.component.annotations.Component;
 
 import io.github.vm.patlego.html.Parseable;
 import io.github.vm.patlego.html.enumerations.ParseableProperty;
-import io.github.vm.patlego.html.sample.parser.header.Header;
+import io.github.vm.patlego.html.sample.parser.page.Head;
 
 @Component(service = Parseable.class, immediate = true,
 property = {
@@ -18,10 +18,8 @@ public class IndexParseable implements Parseable {
     }
       
     private static class IndexPage {
-        private Header header = new Header();
-
-        public Header getHeader() {
-            return header;
+        public Head getHead() {
+            return new Head();
         }
     }
 }

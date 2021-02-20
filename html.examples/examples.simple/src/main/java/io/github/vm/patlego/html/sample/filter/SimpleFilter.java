@@ -2,10 +2,14 @@ package io.github.vm.patlego.html.sample.filter;
 
 import java.io.PrintWriter;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.github.jknack.handlebars.Helper;
+import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import com.github.jknack.handlebars.internal.lang3.StringUtils;
 import com.github.jknack.handlebars.io.ServletContextTemplateLoader;
 import com.github.jknack.handlebars.io.TemplateLoader;
@@ -23,8 +27,8 @@ public class SimpleFilter extends AbstractFilter {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final String CONTEXT_PATH = "/html/examples/simple/";
-    private final String HTML_EXTENSION = ".html";
+    private static final String CONTEXT_PATH = "/html/examples/simple/";
+    private static final String HTML_EXTENSION = ".html";
 
     @Override
     public void template(HttpServletRequest request, HttpServletResponse response) {
@@ -42,7 +46,7 @@ public class SimpleFilter extends AbstractFilter {
             ParseableLoader parseableLoader = new BundleContextParseableLoader(context);
             TemplateLoader loader = new ServletContextTemplateLoader(request.getServletContext(), "/", HTML_EXTENSION);
             
-            String templatedResponse = SimpleMustacheParser.parse(path, loader, parseableLoader);
+            String templatedResponse = SimpleMustacheParser.parse(path, loader, parseableLoader, ConditionalHelpers.class);
 
             PrintWriter responseWriter = response.getWriter();
             response.setContentLength(templatedResponse.length());
