@@ -7,7 +7,7 @@ import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 
 import io.github.vm.patlego.html.Parseable;
-import io.github.vm.patlego.html.enumerations.ParseableProperty;
+import io.github.vm.patlego.html.constants.ParseableProperty;
 import io.github.vm.patlego.html.exceptions.ParseableLoaderException;
 import io.github.vm.patlego.html.parser.ParseableLoader;
 
