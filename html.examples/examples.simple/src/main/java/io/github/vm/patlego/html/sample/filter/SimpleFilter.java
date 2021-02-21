@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.helper.ConditionalHelpers;
+import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.internal.lang3.StringUtils;
 import com.github.jknack.handlebars.io.ServletContextTemplateLoader;
 import com.github.jknack.handlebars.io.TemplateLoader;
@@ -46,7 +47,7 @@ public class SimpleFilter extends AbstractFilter {
             ParseableLoader parseableLoader = new BundleContextParseableLoader(context);
             TemplateLoader loader = new ServletContextTemplateLoader(request.getServletContext(), "/", HTML_EXTENSION);
             
-            String templatedResponse = SimpleMustacheParser.parse(path, loader, parseableLoader, ConditionalHelpers.class);
+            String templatedResponse = SimpleMustacheParser.parse(path, loader, parseableLoader, ConditionalHelpers.class, StringHelpers.class);
 
             PrintWriter responseWriter = response.getWriter();
             response.setContentLength(templatedResponse.length());

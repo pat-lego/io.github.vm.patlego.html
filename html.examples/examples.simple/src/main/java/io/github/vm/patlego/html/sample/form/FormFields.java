@@ -1,13 +1,17 @@
 package io.github.vm.patlego.html.sample.form;
 
+import io.github.vm.patlego.html.sample.form.constants.FormField;
+
 public interface FormFields {
 
-    public String id();
+    public String getId();
 
-    public Boolean isMandatory();
+    public Boolean getIsMandatory();
 
-    public FormFields fieldType();
+    public FormField getFieldType();
 
-    public Object value();
+    public Object getValue();
+
+    public String getLabel();
     
 }

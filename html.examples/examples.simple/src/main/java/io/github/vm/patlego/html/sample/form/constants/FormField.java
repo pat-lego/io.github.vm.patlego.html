@@ -1,6 +1,6 @@
 package io.github.vm.patlego.html.sample.form.constants;
 
-public enum FormFields {
+public enum FormField {
 
     BUTTON,
     CHECKBOX,

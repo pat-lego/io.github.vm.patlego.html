@@ -6,12 +6,12 @@ import io.github.vm.patlego.html.sample.form.constants.FormMethod;
 
 public interface Form {
 
-    public String id();
+    public String getId();
 
-    public String action();
+    public String getAction();
 
-    public FormMethod method();
+    public FormMethod getMethod();
 
-    public List<FormFields> fields();
+    public List<FormFields> getFields();
     
 }

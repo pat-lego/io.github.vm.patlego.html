@@ -27,7 +27,14 @@
         </div>
         <div class="flex-grow main">
             <main>
-                Pat was here!
+                <form id="{{content.form.id}}">
+                    {{#each content.form.fields}}
+                    <div>
+                        <p for={{this.id}}>{{this.label}}</p>
+                        <input id="{{this.id}}" type="{{lower this.fieldType}}" />
+                    </div>
+                    {{/each}}
+                </form>
             </main>
         </div>
         <!-- Footer of the page -->
