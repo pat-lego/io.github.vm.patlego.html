@@ -60,16 +60,16 @@ public class IndexParseable implements Parseable {
 
                 @Override
                 public List<FormFields> getFields() {
-                    FormFields text = new FormFields(){
+                    FormFields firstName = new FormFields(){
 
                         @Override
                         public String getId() {
-                           return "textfield-1";
+                           return "firstname";
                         }
 
                         @Override
-                        public Boolean getIsMandatory() {
-                           return Boolean.FALSE;
+                        public Boolean getMandatory() {
+                           return Boolean.TRUE;
                         }
 
                         @Override
@@ -89,14 +89,81 @@ public class IndexParseable implements Parseable {
 
                         @Override
                         public String getName() {
-                            return "textfield-1";
+                            return "firstname";
                         }
-                        
+                    };
+
+                    FormFields lastName = new FormFields(){
+
+                        @Override
+                        public String getId() {
+                           return "lastname";
+                        }
+
+                        @Override
+                        public Boolean getMandatory() {
+                           return Boolean.FALSE;
+                        }
+
+                        @Override
+                        public FormField getFieldType() {
+                            return FormField.TEXT;
+                        }
+
+                        @Override
+                        public Object getValue() {
+                            return StringUtils.EMPTY;
+                        }
+
+                        @Override
+                        public String getLabel() {
+                            return "Last Name";
+                        }
+
+                        @Override
+                        public String getName() {
+                            return "lastname";
+                        }
+                    };
+
+                    FormFields age = new FormFields(){
+
+                        @Override
+                        public String getId() {
+                           return "age";
+                        }
+
+                        @Override
+                        public Boolean getMandatory() {
+                           return Boolean.FALSE;
+                        }
+
+                        @Override
+                        public FormField getFieldType() {
+                            return FormField.TEXT;
+                        }
+
+                        @Override
+                        public Object getValue() {
+                            return StringUtils.EMPTY;
+                        }
+
+                        @Override
+                        public String getLabel() {
+                            return "Age";
+                        }
+
+                        @Override
+                        public String getName() {
+                            return "age";
+                        }
                     };
                     
                     
                     return new ArrayList<FormFields>() {{
-                        add(text);
+                        add(firstName);
+                        add(lastName);
+                        add(age);
                     }};
                 }
 

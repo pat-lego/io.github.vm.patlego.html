@@ -6,7 +6,7 @@ public interface FormFields {
 
     public String getId();
 
-    public Boolean getIsMandatory();
+    public Boolean getMandatory();
 
     public FormField getFieldType();
 
