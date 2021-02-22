@@ -13,5 +13,7 @@ public interface FormFields {
     public Object getValue();
 
     public String getLabel();
+
+    public String getName();
     
 }

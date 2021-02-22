@@ -86,6 +86,11 @@ public class IndexParseable implements Parseable {
                         public String getLabel() {
                             return "First Name";
                         }
+
+                        @Override
+                        public String getName() {
+                            return "textfield-1";
+                        }
                         
                     };
                     
