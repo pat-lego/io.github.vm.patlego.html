@@ -9,8 +9,10 @@ import org.osgi.service.component.annotations.Component;
 
 import io.github.vm.patlego.html.Parseable;
 import io.github.vm.patlego.html.constants.ParseableProperty;
+import io.github.vm.patlego.html.sample.form.Button;
 import io.github.vm.patlego.html.sample.form.Form;
 import io.github.vm.patlego.html.sample.form.FormFields;
+import io.github.vm.patlego.html.sample.form.constants.ButtonType;
 import io.github.vm.patlego.html.sample.form.constants.FormField;
 import io.github.vm.patlego.html.sample.form.constants.FormMethod;
 import io.github.vm.patlego.html.sample.parser.page.Head;
@@ -56,6 +58,28 @@ public class IndexParseable implements Parseable {
                 @Override
                 public FormMethod getMethod() {
                     return FormMethod.POST;
+                }
+
+                @Override
+                public Button getButton() {
+                    return new Button() {
+
+                        @Override
+                        public String getSubject() {
+                            return "Submit";
+                        }
+
+                        @Override
+                        public String getId() {
+                            return "submit";
+                        }
+
+                        @Override
+                        public ButtonType getType() {
+                            return ButtonType.SUBMIT;
+                        }
+                        
+                    };
                 }
 
                 @Override
@@ -126,6 +150,39 @@ public class IndexParseable implements Parseable {
                         }
                     };
 
+                    FormFields email = new FormFields(){
+
+                        @Override
+                        public String getId() {
+                           return "email";
+                        }
+
+                        @Override
+                        public Boolean getMandatory() {
+                           return Boolean.TRUE;
+                        }
+
+                        @Override
+                        public FormField getFieldType() {
+                            return FormField.EMAIL;
+                        }
+
+                        @Override
+                        public Object getValue() {
+                            return StringUtils.EMPTY;
+                        }
+
+                        @Override
+                        public String getLabel() {
+                            return "Email";
+                        }
+
+                        @Override
+                        public String getName() {
+                            return "email";
+                        }
+                    };
+
                     FormFields age = new FormFields(){
 
                         @Override
@@ -140,7 +197,7 @@ public class IndexParseable implements Parseable {
 
                         @Override
                         public FormField getFieldType() {
-                            return FormField.TEXT;
+                            return FormField.NUMBER;
                         }
 
                         @Override
@@ -158,12 +215,149 @@ public class IndexParseable implements Parseable {
                             return "age";
                         }
                     };
+
+                    FormFields male = new FormFields(){
+
+                        @Override
+                        public String getId() {
+                           return "male";
+                        }
+
+                        @Override
+                        public Boolean getMandatory() {
+                           return Boolean.FALSE;
+                        }
+
+                        @Override
+                        public FormField getFieldType() {
+                            return FormField.RADIO;
+                        }
+
+                        @Override
+                        public Object getValue() {
+                            return "male";
+                        }
+
+                        @Override
+                        public String getLabel() {
+                            return "Male";
+                        }
+
+                        @Override
+                        public String getName() {
+                            return "gender";
+                        }
+                    };
+
+                    FormFields female = new FormFields(){
+
+                        @Override
+                        public String getId() {
+                           return "female";
+                        }
+
+                        @Override
+                        public Boolean getMandatory() {
+                           return Boolean.FALSE;
+                        }
+
+                        @Override
+                        public FormField getFieldType() {
+                            return FormField.RADIO;
+                        }
+
+                        @Override
+                        public Object getValue() {
+                            return "female";
+                        }
+
+                        @Override
+                        public String getLabel() {
+                            return "Female";
+                        }
+
+                        @Override
+                        public String getName() {
+                            return "gender";
+                        }
+                    };
+
+                    FormFields other = new FormFields(){
+
+                        @Override
+                        public String getId() {
+                           return "other";
+                        }
+
+                        @Override
+                        public Boolean getMandatory() {
+                           return Boolean.FALSE;
+                        }
+
+                        @Override
+                        public FormField getFieldType() {
+                            return FormField.RADIO;
+                        }
+
+                        @Override
+                        public Object getValue() {
+                            return "other";
+                        }
+
+                        @Override
+                        public String getLabel() {
+                            return "Other";
+                        }
+
+                        @Override
+                        public String getName() {
+                            return "gender";
+                        }
+                    };
+
+                    FormFields newsletter = new FormFields(){
+
+                        @Override
+                        public String getId() {
+                           return "newletter";
+                        }
+
+                        @Override
+                        public Boolean getMandatory() {
+                           return Boolean.FALSE;
+                        }
+
+                        @Override
+                        public FormField getFieldType() {
+                            return FormField.CHECKBOX;
+                        }
+
+                        @Override
+                        public Object getValue() {
+                            return "agree";
+                        }
+
+                        @Override
+                        public String getLabel() {
+                            return "Concent to receiving news letters";
+                        }
+
+                        @Override
+                        public String getName() {
+                            return "newsletter";
+                        }
+                    };
                     
                     
                     return new ArrayList<FormFields>() {{
                         add(firstName);
                         add(lastName);
+                        add(email);
                         add(age);
+                        add(male);
+                        add(female);
+                        add(other);
+                        add(newsletter);
                     }};
                 }
 

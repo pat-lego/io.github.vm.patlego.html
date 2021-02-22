@@ -12,6 +12,8 @@ public interface Form {
 
     public FormMethod getMethod();
 
+    public Button getButton();
+
     public List<FormFields> getFields();
     
 }

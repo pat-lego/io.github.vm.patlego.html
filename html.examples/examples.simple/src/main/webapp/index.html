@@ -34,9 +34,11 @@
                         {{#each content.form.fields}}
                         <div class="flex items-end p-2 w-80">
                             <p for="{{this.id}}" class="flex-1 pr-2 w-1/2">{{this.label}} </p>
-                            <input class="flex-2" id="{{this.id}}" type="{{lower this.fieldType}}" name="{{this.name}}" {{#eq this.mandatory true}} required {{/eq}} />
+                            <input class="flex-2" id="{{this.id}}" type="{{lower this.fieldType}}" name="{{this.name}}"
+                                value="{{this.value}}" {{#eq this.mandatory true}} required {{/eq}} />
                         </div>
                         {{/each}}
+                        <button class="bg-white" id="{{content.form.button.id}}" type="submit">{{content.form.button.subject}}</button>
                     </form>
                 </div>
             </main>
