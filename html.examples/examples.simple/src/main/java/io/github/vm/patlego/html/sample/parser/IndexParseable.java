@@ -17,6 +17,7 @@ import io.github.vm.patlego.html.sample.form.constants.FormField;
 import io.github.vm.patlego.html.sample.form.constants.FormMethod;
 import io.github.vm.patlego.html.sample.parser.page.Head;
 import io.github.vm.patlego.html.sample.parser.page.Header;
+import io.github.vm.patlego.html.sample.submit.constants.Submit;
 
 @Component(service = Parseable.class, immediate = true, property = { ParseableProperty.TEMPLATE + "=index.html" })
 public class IndexParseable implements Parseable {
@@ -52,7 +53,7 @@ public class IndexParseable implements Parseable {
 
                 @Override
                 public String getAction() {
-                    return StringUtils.EMPTY;
+                    return Submit.SUBMIT_URL;
                 }
 
                 @Override
