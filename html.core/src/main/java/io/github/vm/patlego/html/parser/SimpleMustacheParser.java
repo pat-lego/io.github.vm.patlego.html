@@ -1,18 +1,14 @@
 package io.github.vm.patlego.html.parser;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
-import java.util.Map.Entry;
 
 import com.github.jknack.handlebars.Handlebars;
-import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Template;
-import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import com.github.jknack.handlebars.io.TemplateLoader;
 
 import io.github.vm.patlego.html.Parseable;
 import io.github.vm.patlego.html.exceptions.ParseableLoaderException;
+import io.github.vm.patlego.html.parser.builder.MustacheParserBuilder;
 
 public class SimpleMustacheParser {
 
@@ -44,5 +40,19 @@ public class SimpleMustacheParser {
             
         }
         return SimpleMustacheParser.parse(template, handlebars, loader, parseableLoader);
+    }
+
+    public static String parse(MustacheParserBuilder builder) throws IOException, ParseableLoaderException {
+        Handlebars handlebars = new Handlebars(builder.getTemplateLoader());
+        if (builder.getHelpers() != null && !builder.getHelpers().isEmpty()) {
+            builder.getHelpers().forEach(helper -> handlebars.registerHelpers(helper));
+        }
+        
+        if (builder.getCache() != null) {
+            handlebars.with(builder.getCache());
+        }
+
+        return SimpleMustacheParser.parse(builder.getTemplate(), handlebars, builder.getTemplateLoader(), builder.getParseableLoader());
+
     }
 }

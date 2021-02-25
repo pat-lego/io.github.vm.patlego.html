@@ -1,3 +1,4 @@
+![Build Status](https://github.com/pat-lego/io.github.vm.patlego.html/workflows/Build%20and%20Test/badge.svg)
 # io.github.vm.patlego.html
 A templating engine for HTML markup in the Java web container.
 

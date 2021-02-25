@@ -2,13 +2,11 @@ package io.github.vm.patlego.html.sample.filter;
 
 import java.io.PrintWriter;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.github.jknack.handlebars.Helper;
+import com.github.jknack.handlebars.cache.ConcurrentMapTemplateCache;
 import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.internal.lang3.StringUtils;
@@ -22,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import io.github.vm.patlego.html.filter.AbstractFilter;
 import io.github.vm.patlego.html.parser.ParseableLoader;
 import io.github.vm.patlego.html.parser.SimpleMustacheParser;
+import io.github.vm.patlego.html.parser.builder.MustacheParserBuilder;
 import io.github.vm.patlego.html.parser.impl.BundleContextParseableLoader;
 
 public class SimpleFilter extends AbstractFilter {
@@ -47,7 +46,15 @@ public class SimpleFilter extends AbstractFilter {
             ParseableLoader parseableLoader = new BundleContextParseableLoader(context);
             TemplateLoader loader = new ServletContextTemplateLoader(request.getServletContext(), "/", HTML_EXTENSION);
             
-            String templatedResponse = SimpleMustacheParser.parse(path, loader, parseableLoader, ConditionalHelpers.class, StringHelpers.class);
+            MustacheParserBuilder builder = new MustacheParserBuilder.Builder()
+                                                .setCache(new ConcurrentMapTemplateCache())
+                                                .setTemplate(path)
+                                                .setTemplatLoader(loader)
+                                                .setParseableLoader(parseableLoader)
+                                                .setHelpers(ConditionalHelpers.class)
+                                                .setHelpers(StringHelpers.class)
+                                                .build();
+            String templatedResponse = SimpleMustacheParser.parse(builder);
 
             PrintWriter responseWriter = response.getWriter();
             response.setContentLength(templatedResponse.length());
