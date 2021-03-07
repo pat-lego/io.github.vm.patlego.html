@@ -2,16 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>io.github.vm.patlego.html</groupId>
     <artifactId>html</artifactId>
+    <groupId>io.github.vm.patlego.html</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
   <groupId>io.github.vm.patlego.html</groupId>
-  <artifactId>html.core</artifactId>
+  <artifactId>html.dao</artifactId>
   <packaging>bundle</packaging>
 
-  <name>HTML Core</name>
+  <name>HTML DAO</name>
 
   <build>
     <plugins>
@@ -40,12 +40,8 @@
         <configuration>
           <exportScr>true</exportScr>
           <instructions>
+            <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
             <Import-Package>!javax.annotation, *</Import-Package>
-            <Export-Package>io.github.vm.patlego.html.parser.impl.*, 
-                    io.github.vm.patlego.html.*, 
-                    io.github.vm.patlego.html.filter.*, 
-                    io.github.vm.patlego.html.Parseable.*
-            </Export-Package>
             <_dsannotations>*</_dsannotations>
             <_metatypeannotations>*</_metatypeannotations>
           </instructions>
@@ -70,15 +66,15 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-    </dependency> <!--https://mvnrepository.com/artifact/org.apache.sling/org.apache.sling.testing.osgi-mock.junit5-->
+    </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
-    </dependency> <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+    </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-    </dependency> <!-- https://mvnrepository.com/artifact/org.mockito/mockito-inline -->
+    </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-inline</artifactId>
@@ -88,13 +84,9 @@
       <artifactId>handlebars</artifactId>
     </dependency>
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-    </dependency> <!--https://mvnrepository.com/artifact/org.slf4j/slf4j-simple-->
+    </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
@@ -104,9 +96,28 @@
       <artifactId>jsr305</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.github.vm.patlego.html</groupId>
-      <artifactId>html.dao</artifactId>
-      <version>${project.version}</version>
+      <groupId>javax.transaction</groupId>
+      <artifactId>javax.transaction-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.interceptor</groupId>
+      <artifactId>javax.interceptor-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries.jpa</groupId>
+      <artifactId>org.apache.aries.jpa.api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vladmihalcea</groupId>
+      <artifactId>hibernate-types-52</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
     </dependency>
   </dependencies>
 </project>

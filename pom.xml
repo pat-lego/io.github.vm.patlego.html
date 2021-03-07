@@ -4,21 +4,20 @@
   <groupId>io.github.vm.patlego.html</groupId>
   <artifactId>html</artifactId>
   <version>1.0-SNAPSHOT</version>
-  
   <packaging>pom</packaging>
-  
   <name>HTML</name>
   <modules>
+    <module>html.dao</module>
     <module>html.core</module>
     <module>html.examples</module>
   </modules>
-  
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <handlebars.compiler.version>4.2.0</handlebars.compiler.version>
+    <aries.jpa.version>2.7.2</aries.jpa.version>
+    <hibernate-types.version>2.10.3</hibernate-types.version>
   </properties>
-  
   <distributionManagement>
     <repository>
       <id>patlego-html</id>
@@ -26,7 +25,6 @@
       <url>https://maven.pkg.github.com/pat-lego/io.github.vm.patlego.html</url>
     </repository>
   </distributionManagement>
-  
   <build>
     <pluginManagement>
       <plugins>
@@ -111,6 +109,41 @@
         <groupId>com.google.code.findbugs</groupId>
         <artifactId>jsr305</artifactId>
         <version>3.0.2</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.transaction</groupId>
+        <artifactId>javax.transaction-api</artifactId>
+        <version>1.2</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.interceptor</groupId>
+        <artifactId>javax.interceptor-api</artifactId>
+        <version>1.2</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.aries.jpa</groupId>
+        <artifactId>org.apache.aries.jpa.api</artifactId>
+        <version>${aries.jpa.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.vladmihalcea</groupId>
+        <artifactId>hibernate-types-52</artifactId>
+        <version>${hibernate-types.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.4.2.Final</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
