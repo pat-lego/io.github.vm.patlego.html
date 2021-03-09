@@ -7,11 +7,11 @@ public interface ComponentDS {
 
     public List<Component> getComponents();
 
-    public Component getComponent(Integer id);
+    public Component getComponent(Long id);
 
     public Component insertComponent(Component component);
 
-    public Component deleteComponent(Integer id);
+    public Component deleteComponent(Long id);
 
     public Component updateComponent(Component component);
     
