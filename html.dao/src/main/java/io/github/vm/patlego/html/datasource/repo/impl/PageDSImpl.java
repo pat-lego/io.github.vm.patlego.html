@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.apache.aries.jpa.template.EmFunction;
 import org.apache.aries.jpa.template.JpaTemplate;
 import org.apache.aries.jpa.template.TransactionType;
 import org.osgi.service.component.annotations.Component;
@@ -36,6 +37,51 @@ public class PageDSImpl implements PageDS {
             throw new IllegalArgumentException("Cannot query a page with a null id");
         }
         return this.jpaTemplate.txExpr(TransactionType.RequiresNew, emFunction -> emFunction.find(Page.class, id));
+    }
+
+    @Override
+    public Page createPage(Page page) {
+        if (page == null || page.getId().isEmpty()) {
+            throw new IllegalArgumentException("Cannot persist a null or empty id page");
+        }
+
+        this.jpaTemplate.tx(TransactionType.RequiresNew, emFunction -> emFunction.persist(page));
+        return page;
+    }
+
+    @Override
+    public Page updatePage(Page page) {
+        if (page == null || page.getId().isEmpty()) {
+            throw new IllegalArgumentException("Cannot update a null or undefined Page");
+        }
+
+        Page result = this.jpaTemplate.txExpr(TransactionType.RequiresNew, emFunction -> emFunction.find(Page.class, page.getId()));
+        result.setCreated(page.getCreated());
+        result.setData(page.getData());
+        result.setUpdated(page.getUpdated());
+
+        this.jpaTemplate.tx(TransactionType.RequiresNew, emFunction -> emFunction.merge(result));
+
+        return result;
+    }
+
+    @Override
+    public Page deletePage(String id) {
+        if (id == null || id.isEmpty()) {
+            throw new IllegalArgumentException("Cannot persist a null or empty ID page");
+        }
+
+        Page result = this.jpaTemplate.txExpr(TransactionType.RequiresNew, emFunction -> emFunction.find(Page.class, id));
+
+        this.jpaTemplate.tx(TransactionType.RequiresNew, emFunction -> {
+            if (emFunction.contains(result)) {
+                emFunction.remove(result);
+            } else {
+                emFunction.remove(emFunction.merge(result));
+            }
+        });
+
+        return result;
     }
 
 }
