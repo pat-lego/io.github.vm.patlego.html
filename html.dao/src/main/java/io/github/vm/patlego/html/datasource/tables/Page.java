@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.tables;
+package io.github.vm.patlego.html.datasource.tables;
 
 import java.time.LocalDateTime;
 
@@ -18,14 +18,11 @@ import org.hibernate.annotations.TypeDef;
     name = "jsonb",
     typeClass = JsonBinaryType.class
 )
-public class Pages {
+public class Page {
     
     @Id
     @Column(name = "page_id", nullable = false, unique = true)
     private String id;
-
-    @Column(name = "page", columnDefinition = "TEXT", nullable = false)
-    private String page;
 
     @Type(type = "jsonb")
     @Column(name = "data", columnDefinition = "jsonb", nullable = false)
@@ -43,14 +40,6 @@ public class Pages {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getPage() {
-        return page;
-    }
-
-    public void setPage(String page) {
-        this.page = page;
     }
 
     public String getData() {

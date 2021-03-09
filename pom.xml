@@ -144,6 +144,7 @@
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-core</artifactId>
         <version>5.4.2.Final</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>

@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.tables;
+package io.github.vm.patlego.html.datasource.tables;
 
 import java.time.LocalDateTime;
 
@@ -11,15 +11,15 @@ import javax.persistence.Table;
 
 @Entity(name = "components")
 @Table(name = "components", schema = "patlegovm")
-public class Components {
+public class Component {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "component_id")
     private Long id;
 
-    @Column(name = "component", columnDefinition = "TEXT", nullable = false)
-    private String component;
+    @Column(name = "context", columnDefinition = "TEXT", nullable = false)
+    private String context;
 
     @Column(name = "component_group", nullable = false)
     private String componentGroup;
@@ -34,13 +34,6 @@ public class Components {
         return id;
     }
 
-    public String getComponent() {
-        return component;
-    }
-
-    public void setComponent(String component) {
-        this.component = component;
-    }
 
     public String getComponentGroup() {
         return componentGroup;
@@ -64,5 +57,13 @@ public class Components {
 
     public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
+    }
+
+    public String getContext() {
+        return context;
+    }
+
+    public void setContext(String context) {
+        this.context = context;
     }
 }
