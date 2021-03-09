@@ -7,8 +7,8 @@ import com.github.jknack.handlebars.internal.lang3.StringUtils;
 
 import org.osgi.service.component.annotations.Component;
 
-import io.github.vm.patlego.html.Parseable;
-import io.github.vm.patlego.html.constants.ParseableProperty;
+import io.github.vm.patlego.html.core.Parseable;
+import io.github.vm.patlego.html.core.constants.ParseableProperty;
 import io.github.vm.patlego.html.sample.form.Button;
 import io.github.vm.patlego.html.sample.form.Form;
 import io.github.vm.patlego.html.sample.form.FormFields;

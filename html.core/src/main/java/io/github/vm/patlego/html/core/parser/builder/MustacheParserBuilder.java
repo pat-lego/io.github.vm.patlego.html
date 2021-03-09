@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.parser.builder;
+package io.github.vm.patlego.html.core.parser.builder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import com.github.jknack.handlebars.cache.TemplateCache;
 import com.github.jknack.handlebars.io.TemplateLoader;
 
-import io.github.vm.patlego.html.parser.ParseableLoader;
+import io.github.vm.patlego.html.core.parser.ParseableLoader;
 
 public class MustacheParserBuilder {
 

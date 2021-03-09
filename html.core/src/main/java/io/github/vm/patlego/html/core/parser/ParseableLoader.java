@@ -1,10 +1,10 @@
-package io.github.vm.patlego.html.parser;
+package io.github.vm.patlego.html.core.parser;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import io.github.vm.patlego.html.Parseable;
-import io.github.vm.patlego.html.exceptions.ParseableLoaderException;
+import io.github.vm.patlego.html.core.Parseable;
+import io.github.vm.patlego.html.core.exceptions.ParseableLoaderException;
 
 public interface ParseableLoader {
 

@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.filter;
+package io.github.vm.patlego.html.core.filter;
 
 import java.io.IOException;
 

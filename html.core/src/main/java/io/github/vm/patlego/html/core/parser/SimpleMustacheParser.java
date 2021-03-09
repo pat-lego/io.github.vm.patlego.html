@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.parser;
+package io.github.vm.patlego.html.core.parser;
 
 import java.io.IOException;
 
@@ -6,9 +6,9 @@ import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.io.TemplateLoader;
 
-import io.github.vm.patlego.html.Parseable;
-import io.github.vm.patlego.html.exceptions.ParseableLoaderException;
-import io.github.vm.patlego.html.parser.builder.MustacheParserBuilder;
+import io.github.vm.patlego.html.core.Parseable;
+import io.github.vm.patlego.html.core.exceptions.ParseableLoaderException;
+import io.github.vm.patlego.html.core.parser.builder.MustacheParserBuilder;
 
 public class SimpleMustacheParser {
 

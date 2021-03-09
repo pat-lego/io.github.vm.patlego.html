@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html;
+package io.github.vm.patlego.html.core;
 
 import javax.annotation.Nonnull;
 

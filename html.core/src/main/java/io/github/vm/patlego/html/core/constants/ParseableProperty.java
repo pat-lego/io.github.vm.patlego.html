@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.constants;
+package io.github.vm.patlego.html.core.constants;
 
 public class ParseableProperty {
 

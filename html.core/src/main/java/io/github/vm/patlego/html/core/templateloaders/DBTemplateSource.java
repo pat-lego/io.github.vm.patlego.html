@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.templateloaders;
+package io.github.vm.patlego.html.core.templateloaders;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

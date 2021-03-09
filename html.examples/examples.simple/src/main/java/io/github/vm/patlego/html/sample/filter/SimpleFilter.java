@@ -17,11 +17,11 @@ import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.vm.patlego.html.filter.AbstractFilter;
-import io.github.vm.patlego.html.parser.ParseableLoader;
-import io.github.vm.patlego.html.parser.SimpleMustacheParser;
-import io.github.vm.patlego.html.parser.builder.MustacheParserBuilder;
-import io.github.vm.patlego.html.parser.impl.BundleContextParseableLoader;
+import io.github.vm.patlego.html.core.filter.AbstractFilter;
+import io.github.vm.patlego.html.core.parser.ParseableLoader;
+import io.github.vm.patlego.html.core.parser.SimpleMustacheParser;
+import io.github.vm.patlego.html.core.parser.builder.MustacheParserBuilder;
+import io.github.vm.patlego.html.core.parser.impl.BundleContextParseableLoader;
 
 public class SimpleFilter extends AbstractFilter {
 
