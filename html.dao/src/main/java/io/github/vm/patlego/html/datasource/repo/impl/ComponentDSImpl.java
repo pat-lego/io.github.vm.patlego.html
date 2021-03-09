@@ -1,6 +1,5 @@
 package io.github.vm.patlego.html.datasource.repo.impl;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaQuery;
