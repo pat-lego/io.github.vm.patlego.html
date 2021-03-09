@@ -32,6 +32,9 @@ public class PageDSImpl implements PageDS {
 
     @Override
     public Page getPage(String id) {
+        if (id == null || id.isEmpty()) {
+            throw new IllegalArgumentException("Cannot query a page with a null id");
+        }
         return this.jpaTemplate.txExpr(TransactionType.RequiresNew, emFunction -> emFunction.find(Page.class, id));
     }
 
