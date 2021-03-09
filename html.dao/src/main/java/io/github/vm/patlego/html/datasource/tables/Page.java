@@ -25,7 +25,7 @@ public class Page {
     private String id;
 
     @Type(type = "jsonb")
-    @Column(name = "data", columnDefinition = "jsonb", nullable = false)
+    @Column(name = "data", columnDefinition = "JSONB", nullable = false)
     private String data;
 
     @Column(name = "creation_dt")

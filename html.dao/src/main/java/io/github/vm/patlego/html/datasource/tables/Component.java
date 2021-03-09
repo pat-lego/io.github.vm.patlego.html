@@ -9,8 +9,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+
+
 @Entity(name = "components")
 @Table(name = "components", schema = "patlegovm")
+@TypeDef(
+    name = "jsonb",
+    typeClass = JsonBinaryType.class
+)
 public class Component {
 
     @Id
@@ -18,7 +28,8 @@ public class Component {
     @Column(name = "component_id")
     private Long id;
 
-    @Column(name = "context", columnDefinition = "TEXT", nullable = false)
+    @Type(type = "jsonb")
+    @Column(name = "context", columnDefinition = "JSONB", nullable = false)
     private String context;
 
     @Column(name = "component_group", nullable = false)
