@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import io.github.vm.patlego.html.core.constants.MediaType;
 
-@Component(service = Servlet.class, immediate = true, property = { "alias=/html/services/components", "servlet-name=Example"})
+@Component(service = Servlet.class, immediate = true, property = { "alias=/html/services/components", "servlet-name=Services-Components"})
 public class ComponentsServlet extends HttpServlet implements Servlet {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());

@@ -65,7 +65,4 @@ public class Page {
     public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
     }
-
-    
-
 }

@@ -30,7 +30,7 @@ public class Component {
 
     @Type(type = "jsonb")
     @Column(name = "context", columnDefinition = "JSONB", nullable = false)
-    private String context;
+    private Context context;
 
     @Column(name = "component_group", nullable = false)
     private String componentGroup;
@@ -44,7 +44,6 @@ public class Component {
     public Long getId() {
         return id;
     }
-
 
     public String getComponentGroup() {
         return componentGroup;
@@ -70,11 +69,11 @@ public class Component {
         this.updated = updated;
     }
 
-    public String getContext() {
+    public Context getContext() {
         return context;
     }
 
-    public void setContext(String context) {
+    public void setContext(Context context) {
         this.context = context;
     }
 }
