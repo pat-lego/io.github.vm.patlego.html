@@ -28,8 +28,10 @@ public class ComponentsServlet extends HttpServlet implements Servlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             io.github.vm.patlego.html.datasource.tables.Component component = this.componentManager.createComponent(req.getInputStream());
+            
             resp.setStatus(HttpServletResponse.SC_OK);
             resp.setContentType(MediaType.JSON);
+
             new Gson().toJson(component, resp.getWriter());
             resp.getWriter().flush();
             resp.getWriter().close();
