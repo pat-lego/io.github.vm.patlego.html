@@ -34,19 +34,37 @@ public class SimpleComponentManager implements ComponentManager {
     public io.github.vm.patlego.html.datasource.tables.Component createComponent(InputStream in) throws IOException {
 
         Gson gson = new ComponentGsonUtil().getGson();
-        
+
+        io.github.vm.patlego.html.datasource.tables.Component component = gson.fromJson(new InputStreamReader(in),
+                io.github.vm.patlego.html.datasource.tables.Component.class);
+
+        component.setCreated(LocalDateTime.now());
+        component.setUpdated(LocalDateTime.now());
+
+        return this.componentDataSource.insertComponent(component);
+    }
+
+    @Override
+    public io.github.vm.patlego.html.datasource.tables.Component updateComponent(InputStream in) throws IOException {
+        Gson gson = new ComponentGsonUtil().getGson();
+
         io.github.vm.patlego.html.datasource.tables.Component component = gson.fromJson(new InputStreamReader(in),
                 io.github.vm.patlego.html.datasource.tables.Component.class);
 
         if (component.getCreated() == null) {
-            component.setCreated(LocalDateTime.now());
+            throw new IllegalArgumentException(
+                    "Cannot update a component with a undefined created time. Please make sure to provide a valid creation time");
         }
 
         if (component.getUpdated() == null) {
             component.setUpdated(LocalDateTime.now());
         }
 
-        return this.componentDataSource.insertComponent(component);
+        if (component.getCreated().isAfter(component.getUpdated())) {
+            throw new IllegalArgumentException("Cannot update a component with a created time that is after the update time");
+        }
+
+        return this.componentDataSource.updateComponent(component);
     }
 
 }
