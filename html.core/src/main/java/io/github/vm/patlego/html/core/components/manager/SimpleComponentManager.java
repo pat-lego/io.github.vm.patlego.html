@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.core.components.impl;
+package io.github.vm.patlego.html.core.components.manager;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

@@ -15,7 +15,7 @@ public interface ComponentManager {
     public Component getComponent(Long id) throws ComponentException;
 
     public List<Component> getComponents() throws ComponentException;
-
+ 
     public Component deleteComponent(Long id) throws ComponentException;
     
 }
