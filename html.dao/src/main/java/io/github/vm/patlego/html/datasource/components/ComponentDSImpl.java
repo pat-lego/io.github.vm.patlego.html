@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.datasource.repo.impl;
+package io.github.vm.patlego.html.datasource.components;
 
 import java.util.List;
 
@@ -12,8 +12,6 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.vm.patlego.html.datasource.repo.ComponentDS;
-
 @Component(service = ComponentDS.class, immediate = true)
 public class ComponentDSImpl implements ComponentDS {
 
@@ -23,12 +21,12 @@ public class ComponentDSImpl implements ComponentDS {
     private JpaTemplate jpaTemplate;
 
     @Override
-    public List<io.github.vm.patlego.html.datasource.tables.Component> getComponents() {
+    public List<io.github.vm.patlego.html.datasource.components.tables.Component> getComponents() {
         return this.jpaTemplate.txExpr(TransactionType.RequiresNew, emFunction -> {
-            CriteriaQuery<io.github.vm.patlego.html.datasource.tables.Component> criteriaQueryComponents = emFunction
-                    .getCriteriaBuilder().createQuery(io.github.vm.patlego.html.datasource.tables.Component.class);
-            Root<io.github.vm.patlego.html.datasource.tables.Component> variableRoot = criteriaQueryComponents
-                    .from(io.github.vm.patlego.html.datasource.tables.Component.class);
+            CriteriaQuery<io.github.vm.patlego.html.datasource.components.tables.Component> criteriaQueryComponents = emFunction
+                    .getCriteriaBuilder().createQuery(io.github.vm.patlego.html.datasource.components.tables.Component.class);
+            Root<io.github.vm.patlego.html.datasource.components.tables.Component> variableRoot = criteriaQueryComponents
+                    .from(io.github.vm.patlego.html.datasource.components.tables.Component.class);
 
             criteriaQueryComponents.select(variableRoot);
             return emFunction.createQuery(criteriaQueryComponents).getResultList();
@@ -36,17 +34,17 @@ public class ComponentDSImpl implements ComponentDS {
     }
 
     @Override
-    public io.github.vm.patlego.html.datasource.tables.Component getComponent(Long id) {
+    public io.github.vm.patlego.html.datasource.components.tables.Component getComponent(Long id) {
         if (id == null || id <= 0) {
             throw new IllegalArgumentException("Cannot query for a negative or null component id");
         }
         return this.jpaTemplate.txExpr(TransactionType.RequiresNew,
-                emFunction -> emFunction.find(io.github.vm.patlego.html.datasource.tables.Component.class, id));
+                emFunction -> emFunction.find(io.github.vm.patlego.html.datasource.components.tables.Component.class, id));
     }
 
     @Override
-    public io.github.vm.patlego.html.datasource.tables.Component insertComponent(
-            io.github.vm.patlego.html.datasource.tables.Component component) {
+    public io.github.vm.patlego.html.datasource.components.tables.Component insertComponent(
+            io.github.vm.patlego.html.datasource.components.tables.Component component) {
         if (component == null) {
             throw new IllegalArgumentException("Cannot persist null or undefined component");
         }
@@ -56,18 +54,18 @@ public class ComponentDSImpl implements ComponentDS {
     }
 
     @Override
-    public io.github.vm.patlego.html.datasource.tables.Component deleteComponent(Long id) {
+    public io.github.vm.patlego.html.datasource.components.tables.Component deleteComponent(Long id) {
         if (id == null || id <= 0) {
             throw new IllegalArgumentException("Cannot query for a null or negative ID in the database");
         }
-        io.github.vm.patlego.html.datasource.tables.Component result = this.jpaTemplate.txExpr(
+        io.github.vm.patlego.html.datasource.components.tables.Component result = this.jpaTemplate.txExpr(
                 TransactionType.RequiresNew,
-                emFunction -> emFunction.find(io.github.vm.patlego.html.datasource.tables.Component.class, id));
+                emFunction -> emFunction.find(io.github.vm.patlego.html.datasource.components.tables.Component.class, id));
         this.jpaTemplate.tx(emFunction -> {
             if (emFunction.contains(result)) {
                 emFunction.remove(result);
             } else {
-                io.github.vm.patlego.html.datasource.tables.Component component = emFunction.merge(result);
+                io.github.vm.patlego.html.datasource.components.tables.Component component = emFunction.merge(result);
                 emFunction.remove(component);
             }
         });
@@ -75,15 +73,15 @@ public class ComponentDSImpl implements ComponentDS {
     }
 
     @Override
-    public io.github.vm.patlego.html.datasource.tables.Component updateComponent(
-            io.github.vm.patlego.html.datasource.tables.Component component) {
+    public io.github.vm.patlego.html.datasource.components.tables.Component updateComponent(
+            io.github.vm.patlego.html.datasource.components.tables.Component component) {
         if (component == null) {
             throw new IllegalArgumentException("Cannot update null or undefined component");
         }
 
-        io.github.vm.patlego.html.datasource.tables.Component result = this.jpaTemplate
+        io.github.vm.patlego.html.datasource.components.tables.Component result = this.jpaTemplate
                 .txExpr(TransactionType.RequiresNew, emFunction -> emFunction
-                        .find(io.github.vm.patlego.html.datasource.tables.Component.class, component.getId()));
+                        .find(io.github.vm.patlego.html.datasource.components.tables.Component.class, component.getId()));
         result.setComponentGroup(component.getComponentGroup());
         result.setContext(component.getContext());
         result.setCreated(component.getCreated());

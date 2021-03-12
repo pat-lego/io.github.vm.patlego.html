@@ -21,7 +21,7 @@ import io.github.vm.patlego.html.core.components.exceptions.ComponentException;
 import io.github.vm.patlego.html.core.constants.MediaType;
 
 @Component(service = Servlet.class, immediate = true, property = { "alias=/html/services/components",
-        "servlet-name=Services-Components" })
+        "servlet-name=HTML Services Components" })
 public class ComponentsServlet extends HttpServlet implements Servlet {
 
     /**
@@ -44,7 +44,7 @@ public class ComponentsServlet extends HttpServlet implements Servlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            io.github.vm.patlego.html.datasource.tables.Component component = this.componentManager
+            io.github.vm.patlego.html.datasource.components.tables.Component component = this.componentManager
                     .createComponent(req.getInputStream());
 
             new Gson().toJson(component, resp.getWriter());
@@ -69,7 +69,7 @@ public class ComponentsServlet extends HttpServlet implements Servlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            io.github.vm.patlego.html.datasource.tables.Component component = this.componentManager
+            io.github.vm.patlego.html.datasource.components.tables.Component component = this.componentManager
                     .updateComponent(req.getInputStream());
 
             new Gson().toJson(component, resp.getWriter());
@@ -95,11 +95,11 @@ public class ComponentsServlet extends HttpServlet implements Servlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try {
             if (req.getParameter(id) == null || req.getParameter(id).isEmpty()) {
-                List<io.github.vm.patlego.html.datasource.tables.Component> components = this.componentManager
+                List<io.github.vm.patlego.html.datasource.components.tables.Component> components = this.componentManager
                         .getComponents();
                 new Gson().toJson(components, resp.getWriter());
             } else {
-                io.github.vm.patlego.html.datasource.tables.Component component = this.componentManager.getComponent(Long.parseLong(req.getParameter(ComponentsServlet.id)));
+                io.github.vm.patlego.html.datasource.components.tables.Component component = this.componentManager.getComponent(Long.parseLong(req.getParameter(ComponentsServlet.id)));
                 new Gson().toJson(component, resp.getWriter());
             }
 
@@ -132,7 +132,7 @@ public class ComponentsServlet extends HttpServlet implements Servlet {
                 resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
                 return;
             } else {
-                io.github.vm.patlego.html.datasource.tables.Component component = this.componentManager.deleteComponent(Long.parseLong(req.getParameter(id)));
+                io.github.vm.patlego.html.datasource.components.tables.Component component = this.componentManager.deleteComponent(Long.parseLong(req.getParameter(id)));
                 new Gson().toJson(component, resp.getWriter());
             }
 

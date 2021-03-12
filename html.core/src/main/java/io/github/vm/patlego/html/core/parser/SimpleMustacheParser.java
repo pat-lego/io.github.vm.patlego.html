@@ -7,7 +7,7 @@ import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.io.TemplateLoader;
 
 import io.github.vm.patlego.html.core.Parseable;
-import io.github.vm.patlego.html.core.exceptions.ParseableLoaderException;
+import io.github.vm.patlego.html.core.parser.exceptions.ParseableLoaderException;
 import io.github.vm.patlego.html.core.parser.builder.MustacheParserBuilder;
 
 public class SimpleMustacheParser {

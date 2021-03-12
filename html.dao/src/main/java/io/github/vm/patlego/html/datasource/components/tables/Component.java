@@ -1,9 +1,11 @@
-package io.github.vm.patlego.html.datasource.tables;
+package io.github.vm.patlego.html.datasource.components.tables;
 
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,21 +14,26 @@ import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
-@Entity(name = "pages")
-@Table(name = "pages", schema = "patlegovm")
+
+@Entity(name = "components")
+@Table(name = "components", schema = "patlegovm")
 @TypeDef(
     name = "jsonb",
     typeClass = JsonBinaryType.class
 )
-public class Page {
-    
+public class Component {
+
     @Id
-    @Column(name = "page_id", nullable = false, unique = true)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "component_id")
+    private Long id;
 
     @Type(type = "jsonb")
-    @Column(name = "data", columnDefinition = "JSONB", nullable = false)
-    private String data;
+    @Column(name = "context", columnDefinition = "JSONB", nullable = false)
+    private Context context;
+
+    @Column(name = "component_group", nullable = false)
+    private String componentGroup;
 
     @Column(name = "creation_dt")
     private LocalDateTime created;
@@ -34,20 +41,16 @@ public class Page {
     @Column(name = "updated_dt")
     private LocalDateTime updated;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getComponentGroup() {
+        return componentGroup;
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
+    public void setComponentGroup(String componentGroup) {
+        this.componentGroup = componentGroup;
     }
 
     public LocalDateTime getCreated() {
@@ -64,5 +67,13 @@ public class Page {
 
     public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 }

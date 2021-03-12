@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.core.utils;
+package io.github.vm.patlego.html.core;
 
 import com.google.gson.Gson;
 

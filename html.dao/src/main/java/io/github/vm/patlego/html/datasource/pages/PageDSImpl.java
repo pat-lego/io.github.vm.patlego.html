@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.datasource.repo.impl;
+package io.github.vm.patlego.html.datasource.pages;
 
 import java.util.List;
 
@@ -10,8 +10,7 @@ import org.apache.aries.jpa.template.TransactionType;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-import io.github.vm.patlego.html.datasource.repo.PageDS;
-import io.github.vm.patlego.html.datasource.tables.Page;
+import io.github.vm.patlego.html.datasource.pages.tables.Page;
 
 @Component(service = PageDS.class, immediate = true)
 public class PageDSImpl implements PageDS {

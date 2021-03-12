@@ -1,7 +1,7 @@
-package io.github.vm.patlego.html.datasource.repo;
+package io.github.vm.patlego.html.datasource.pages;
 
 import java.util.List;
-import io.github.vm.patlego.html.datasource.tables.Page;
+import io.github.vm.patlego.html.datasource.pages.tables.Page;
 
 public interface PageDS {
 

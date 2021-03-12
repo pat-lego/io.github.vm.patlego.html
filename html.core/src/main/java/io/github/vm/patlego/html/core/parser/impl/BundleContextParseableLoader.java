@@ -8,7 +8,7 @@ import org.osgi.framework.ServiceReference;
 
 import io.github.vm.patlego.html.core.Parseable;
 import io.github.vm.patlego.html.core.constants.ParseableProperty;
-import io.github.vm.patlego.html.core.exceptions.ParseableLoaderException;
+import io.github.vm.patlego.html.core.parser.exceptions.ParseableLoaderException;
 import io.github.vm.patlego.html.core.parser.ParseableLoader;
 
 public class BundleContextParseableLoader implements ParseableLoader {

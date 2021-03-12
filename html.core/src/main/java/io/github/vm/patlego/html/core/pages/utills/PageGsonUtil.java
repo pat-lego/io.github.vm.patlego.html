@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.core.utils.impl;
+package io.github.vm.patlego.html.core.pages.utills;
 
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
@@ -12,9 +12,9 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
-import io.github.vm.patlego.html.core.utils.GsonUtil;
+import io.github.vm.patlego.html.core.GsonUtil;
 
-public class ComponentGsonUtil implements GsonUtil {
+public class PageGsonUtil implements GsonUtil {
 
     @Override
     public Gson getGson() {
@@ -27,7 +27,6 @@ public class ComponentGsonUtil implements GsonUtil {
                 return LocalDateTime.parse(json.getAsJsonPrimitive().getAsString(), formatter);
             }
         }).create();
-
     }
-
+    
 }

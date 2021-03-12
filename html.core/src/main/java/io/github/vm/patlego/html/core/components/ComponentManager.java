@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import io.github.vm.patlego.html.core.components.exceptions.ComponentException;
-import io.github.vm.patlego.html.datasource.tables.Component;
+import io.github.vm.patlego.html.datasource.components.tables.Component;
 
 public interface ComponentManager {
 

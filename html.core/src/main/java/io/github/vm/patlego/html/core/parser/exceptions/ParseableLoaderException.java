@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.core.exceptions;
+package io.github.vm.patlego.html.core.parser.exceptions;
 
 public class ParseableLoaderException extends Exception {
 

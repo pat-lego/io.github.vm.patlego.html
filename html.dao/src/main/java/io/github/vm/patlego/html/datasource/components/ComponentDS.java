@@ -1,7 +1,7 @@
-package io.github.vm.patlego.html.datasource.repo;
+package io.github.vm.patlego.html.datasource.components;
 
 import java.util.List;
-import io.github.vm.patlego.html.datasource.tables.Component;
+import io.github.vm.patlego.html.datasource.components.tables.Component;
 
 public interface ComponentDS {
 

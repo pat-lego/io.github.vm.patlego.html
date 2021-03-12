@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.datasource.tables;
+package io.github.vm.patlego.html.datasource.components.tables;
 
 public class Context {
 
