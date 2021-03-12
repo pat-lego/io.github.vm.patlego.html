@@ -10,6 +10,7 @@
     <module>html.dao</module>
     <module>html.core</module>
     <module>html.examples</module>
+    <module>html.ui</module>
   </modules>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
