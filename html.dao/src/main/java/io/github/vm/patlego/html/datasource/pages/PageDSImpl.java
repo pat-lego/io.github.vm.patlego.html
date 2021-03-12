@@ -39,7 +39,7 @@ public class PageDSImpl implements PageDS {
 
     @Override
     public Page createPage(Page page) {
-        if (page == null || page.getId().isEmpty()) {
+        if (page == null) {
             throw new IllegalArgumentException("Cannot persist a null or empty id page");
         }
 
@@ -49,12 +49,13 @@ public class PageDSImpl implements PageDS {
 
     @Override
     public Page updatePage(Page page) {
-        if (page == null || page.getId().isEmpty()) {
+        if (page == null || page.getId() <= 0) {
             throw new IllegalArgumentException("Cannot update a null or undefined Page");
         }
 
         Page result = this.jpaTemplate.txExpr(TransactionType.RequiresNew, emFunction -> emFunction.find(Page.class, page.getId()));
         result.setCreated(page.getCreated());
+        result.setName(page.getName());
         result.setData(page.getData());
         result.setUpdated(page.getUpdated());
 
