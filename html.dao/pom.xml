@@ -43,8 +43,8 @@
             <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
             <Embed-Dependency>hibernate-types-52</Embed-Dependency>
             <Private-Package>com.vladmihalcea.hibernate.type.*</Private-Package>
-            <Export-Package>io.github.vm.patlego.html.datasource.repo.*, 
-              io.github.vm.patlego.html.datasource.tables.*
+            <Export-Package>io.github.vm.patlego.html.datasource.components.*, 
+              io.github.vm.patlego.html.datasource.pages.*
             </Export-Package>
             <Import-Package>!javax.annotation, javax.persistence;version="[2,3)", *</Import-Package>
             <_dsannotations>*</_dsannotations>

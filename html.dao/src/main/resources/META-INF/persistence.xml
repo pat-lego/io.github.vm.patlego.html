@@ -26,8 +26,8 @@
 
         <non-jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=karafdb)</non-jta-data-source>
         
-        <class>io.github.vm.patlego.html.tables.Pages</class>
-        <class>io.github.vm.patlego.html.tables.Components</class>
+        <class>io.github.vm.patlego.html.pages.tables.Pages</class>
+        <class>io.github.vm.patlego.html.components.tables.Components</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
