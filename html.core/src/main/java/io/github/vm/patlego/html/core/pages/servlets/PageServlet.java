@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.github.vm.patlego.html.core.constants.MediaType;
-import io.github.vm.patlego.html.core.pages.PageManger;
+import io.github.vm.patlego.html.core.pages.PageManager;
 import io.github.vm.patlego.html.core.pages.exceptions.PageException;
 import io.github.vm.patlego.html.datasource.pages.tables.Page;
 
@@ -36,7 +36,7 @@ public class PageServlet extends HttpServlet implements Servlet {
     private static String missingManadatoryParameter = "Missing mandatory parameter id in order to perform the desired page operation";
 
     @Reference
-    private PageManger pageManager;
+    private PageManager pageManager;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {

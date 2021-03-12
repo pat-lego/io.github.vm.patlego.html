@@ -14,19 +14,19 @@ import org.hibernate.annotations.TypeDef;
 
 @Entity(name = "pages")
 @Table(name = "pages", schema = "patlegovm")
-@TypeDef(
-    name = "jsonb",
-    typeClass = JsonBinaryType.class
-)
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class Page {
-    
+
     @Id
     @Column(name = "page_id", nullable = false, unique = true)
     private String id;
 
+    @Column(name = "page_name", nullable = false, unique = true)
+    private String name;
+
     @Type(type = "jsonb")
     @Column(name = "data", columnDefinition = "JSONB", nullable = false)
-    private String data;
+    private Context data;
 
     @Column(name = "creation_dt")
     private LocalDateTime created;
@@ -40,14 +40,6 @@ public class Page {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 
     public LocalDateTime getCreated() {
@@ -65,4 +57,21 @@ public class Page {
     public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
     }
+
+    public Context getData() {
+        return data;
+    }
+
+    public void setData(Context data) {
+        this.data = data;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

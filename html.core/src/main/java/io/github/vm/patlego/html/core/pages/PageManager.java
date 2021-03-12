@@ -6,7 +6,7 @@ import java.util.List;
 import io.github.vm.patlego.html.core.pages.exceptions.PageException;
 import io.github.vm.patlego.html.datasource.pages.tables.Page;
 
-public interface PageManger {
+public interface PageManager {
 
     public List<Page> getPages() throws PageException;
 

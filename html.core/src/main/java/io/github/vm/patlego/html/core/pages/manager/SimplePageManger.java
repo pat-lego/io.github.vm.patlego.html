@@ -10,14 +10,14 @@ import org.osgi.service.component.ComponentException;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-import io.github.vm.patlego.html.core.pages.PageManger;
+import io.github.vm.patlego.html.core.pages.PageManager;
 import io.github.vm.patlego.html.core.pages.exceptions.PageException;
 import io.github.vm.patlego.html.core.pages.utills.PageGsonUtil;
 import io.github.vm.patlego.html.datasource.pages.PageDS;
 import io.github.vm.patlego.html.datasource.pages.tables.Page;
 
-@Component(service = PageManger.class, immediate = true)
-public class SimplePageManger implements PageManger {
+@Component(service = PageManager.class, immediate = true)
+public class SimplePageManger implements PageManager {
 
     @Reference
     private PageDS pageDS;
