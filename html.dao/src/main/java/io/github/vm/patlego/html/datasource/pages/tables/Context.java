@@ -2,14 +2,14 @@ package io.github.vm.patlego.html.datasource.pages.tables;
 
 public class Context {
 
-    private String data;
+    private String content;
 
-    public String getData() {
-        return data;
+    public String getContent() {
+        return content;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setContent(String content) {
+        this.content = content;
     }
     
 }

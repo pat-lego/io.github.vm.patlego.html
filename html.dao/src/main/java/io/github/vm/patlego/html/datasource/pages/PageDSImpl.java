@@ -56,7 +56,7 @@ public class PageDSImpl implements PageDS {
         Page result = this.jpaTemplate.txExpr(TransactionType.RequiresNew, emFunction -> emFunction.find(Page.class, page.getId()));
         result.setCreated(page.getCreated());
         result.setName(page.getName());
-        result.setData(page.getData());
+        result.setContext(page.getContext());
         result.setUpdated(page.getUpdated());
 
         this.jpaTemplate.tx(TransactionType.RequiresNew, emFunction -> emFunction.merge(result));

@@ -28,8 +28,8 @@ public class Page {
     private String name;
 
     @Type(type = "jsonb")
-    @Column(name = "data", columnDefinition = "JSONB", nullable = false)
-    private Context data;
+    @Column(name = "context", columnDefinition = "JSONB", nullable = false)
+    private Context context;
 
     @Column(name = "creation_dt")
     private LocalDateTime created;
@@ -61,20 +61,20 @@ public class Page {
         this.updated = updated;
     }
 
-    public Context getData() {
-        return data;
-    }
-
-    public void setData(Context data) {
-        this.data = data;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
 }
