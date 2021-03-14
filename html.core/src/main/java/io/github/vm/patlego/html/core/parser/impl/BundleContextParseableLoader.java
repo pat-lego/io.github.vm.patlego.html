@@ -14,14 +14,27 @@ import io.github.vm.patlego.html.core.parser.ParseableLoader;
 public class BundleContextParseableLoader implements ParseableLoader {
 
     private BundleContext context;
+    private String urlPrefix;
 
     public BundleContextParseableLoader(BundleContext context) {
         this.context = context;
     }
 
+    public BundleContextParseableLoader(BundleContext context, String urlPrefix) {
+        this.context = context;
+
+        if (urlPrefix != null && !urlPrefix.isEmpty()) {
+            this.urlPrefix = urlPrefix;
+        }
+    }
+
     @Override
     public Parseable getParseable(String template) throws ParseableLoaderException {
         try {
+            if (this.urlPrefix != null) {
+                template = String.format("%s%s", urlPrefix, template);
+            }
+            
             Collection<ServiceReference<Parseable>> serviceReference = context.getServiceReferences(Parseable.class,
                     String.format(("(%s=%s)"), ParseableProperty.TEMPLATE, template));
             if (!serviceReference.isEmpty()) {

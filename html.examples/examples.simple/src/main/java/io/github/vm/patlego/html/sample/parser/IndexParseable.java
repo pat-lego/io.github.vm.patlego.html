@@ -19,7 +19,7 @@ import io.github.vm.patlego.html.sample.parser.page.Head;
 import io.github.vm.patlego.html.sample.parser.page.Header;
 import io.github.vm.patlego.html.sample.submit.constants.Submit;
 
-@Component(service = Parseable.class, immediate = true, property = { ParseableProperty.TEMPLATE + "=index.html" })
+@Component(service = Parseable.class, immediate = true, property = { ParseableProperty.TEMPLATE + "=/html/examples/simple/index.html" })
 public class IndexParseable implements Parseable {
 
     @Override

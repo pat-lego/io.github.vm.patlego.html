@@ -43,7 +43,7 @@ public class SimpleFilter extends AbstractFilter {
 
             BundleContext context = (BundleContext) request.getServletContext().getAttribute("osgi-bundlecontext");
             
-            ParseableLoader parseableLoader = new BundleContextParseableLoader(context);
+            ParseableLoader parseableLoader = new BundleContextParseableLoader(context, CONTEXT_PATH);
             TemplateLoader loader = new ServletContextTemplateLoader(request.getServletContext(), "/", HTML_EXTENSION);
             
             MustacheParserBuilder builder = new MustacheParserBuilder.Builder()
