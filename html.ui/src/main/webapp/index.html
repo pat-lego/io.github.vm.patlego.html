@@ -1,5 +1,73 @@
 <html lang="en">
-    <body>
-        Hello World!
-    </body>
+
+<head>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+        .intro {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col h-screen">
+    <header class="w-full">
+        <div class="flex flex-row items-center content-center w-full">
+            <div class="flex justify-center	pl-10 p-5 w-60 border-r-2">
+                <p class="hover:underline">
+                    Components
+                </p>
+            </div>
+            <div class="flex justify-center p-5 w-60 border-r-2">
+                <p class="hover:underline">
+                    Pages
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <section class="flex-grow w-full text-center md:text-left pt-20">
+        <div class="flex flex-col items-center justify-center text-center md:text-left intro">
+            <p class="text-3xl p-5">Welcome to page editor.</p>
+            <p class="text-3xl p-5">Where you can create your own components and then use them to build your own pages
+            </p>
+        </div>
+        <div class="flex flex-col items-center steps">
+            <ol>
+                <li class="p-5">
+                    <p class="flex justify-center p-5 bg-blue-200 rounded-md transition-shadow duration-500 hover:shadow-2xl">Create a component</p>
+                </li>
+                <li class="p-5">
+                    <p class="flex justify-center p-5 bg-blue-200 rounded-md transition-shadow duration-500 hover:shadow-2xl">Create a page</p>
+                </li>
+                <li class="p-5">
+                    <p class="flex justify-center p-5 bg-blue-200 rounded-md transition-shadow duration-500 hover:shadow-2xl">Add components to the page</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <footer class="flex bg-gray-50 h-20 w-full">
+        <div class="flex items-center">
+            <div class="m-4">
+                <a href="https://github.com/pat-lego" target="_blank"><em class="fab fa-github fa-3x"></em></a>
+            </div>
+
+            <div class="m-4">
+                <a href="https://www.linkedin.com/in/patrique-legault/" target="_blank"><em
+                        class="fab fa-linkedin fa-3x"></em></a>
+            </div>
+
+            <div class="m-4">
+                <a href="https://twitter.com/_patlego" target="_blank"><em class="fab fa-twitter fa-3x"></em></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
 </html>
