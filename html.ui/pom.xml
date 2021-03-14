@@ -110,5 +110,10 @@
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.github.vm.patlego.html</groupId>
+      <artifactId>html.core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
   </dependencies>
 </project>
