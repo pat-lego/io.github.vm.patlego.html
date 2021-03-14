@@ -16,8 +16,8 @@ public class SimpleMustacheParser {
         throw new IllegalStateException("Utility class");
     }
 
-    private static String parse(String template, Handlebars handlebars, TemplateLoader loader, ParseableLoader parseableLoader)
-            throws IOException, ParseableLoaderException {
+    private static String parse(String template, Handlebars handlebars, TemplateLoader loader,
+            ParseableLoader parseableLoader) throws IOException, ParseableLoaderException {
         Template compiledTemplate = handlebars.compile(template);
         Parseable parseable = parseableLoader.getParseable(template + loader.getSuffix());
 
@@ -30,14 +30,14 @@ public class SimpleMustacheParser {
         return SimpleMustacheParser.parse(template, handlebars, loader, parseableLoader);
     }
 
-    public static String parse(String template, TemplateLoader loader, ParseableLoader parseableLoader, Object... helpers)
-            throws IOException, ParseableLoaderException {
+    public static String parse(String template, TemplateLoader loader, ParseableLoader parseableLoader,
+            Object... helpers) throws IOException, ParseableLoaderException {
         Handlebars handlebars = new Handlebars(loader);
         if (helpers != null && helpers.length > 0) {
             for (Object helper : helpers) {
                 handlebars = handlebars.registerHelpers(helper);
             }
-            
+
         }
         return SimpleMustacheParser.parse(template, handlebars, loader, parseableLoader);
     }
@@ -47,12 +47,13 @@ public class SimpleMustacheParser {
         if (builder.getHelpers() != null && !builder.getHelpers().isEmpty()) {
             builder.getHelpers().forEach(helper -> handlebars.registerHelpers(helper));
         }
-        
+
         if (builder.getCache() != null) {
             handlebars.with(builder.getCache());
         }
 
-        return SimpleMustacheParser.parse(builder.getTemplate(), handlebars, builder.getTemplateLoader(), builder.getParseableLoader());
+        return SimpleMustacheParser.parse(builder.getTemplate(), handlebars, builder.getTemplateLoader(),
+                builder.getParseableLoader());
 
     }
 }

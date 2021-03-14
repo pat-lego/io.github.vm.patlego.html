@@ -1,4 +1,4 @@
-package io.github.vm.patlego.html.core.parser.impl;
+package io.github.vm.patlego.html.core.parser.parseable;
 
 import java.util.Collection;
 
@@ -16,14 +16,13 @@ public class BundleContextParseableLoader implements ParseableLoader {
     private BundleContext context;
     private String urlPrefix;
 
-    public BundleContextParseableLoader(BundleContext context) {
-        this.context = context;
-    }
-
     public BundleContextParseableLoader(BundleContext context, String urlPrefix) {
         this.context = context;
 
         if (urlPrefix != null && !urlPrefix.isEmpty()) {
+            if (!urlPrefix.endsWith("/")) {
+                urlPrefix = String.format("%s/", urlPrefix);
+            }
             this.urlPrefix = urlPrefix;
         }
     }
@@ -38,10 +37,12 @@ public class BundleContextParseableLoader implements ParseableLoader {
             Collection<ServiceReference<Parseable>> serviceReference = context.getServiceReferences(Parseable.class,
                     String.format(("(%s=%s)"), ParseableProperty.TEMPLATE, template));
             if (!serviceReference.isEmpty()) {
-                return context.getService(serviceReference.iterator().next());
+                return context.getService(serviceReference.stream().findFirst().get());
             }
             else {
-                throw new ParseableLoaderException(String.format("Cannot locate Parseable services in OSGi context with the %s property", ParseableProperty.TEMPLATE));
+                return () -> {
+                    return null;
+                };
             }
         } catch (InvalidSyntaxException e) {
             throw new ParseableLoaderException(String.format("Cannot locate Parseable services in OSGi context please make sure that the %s property is in the @Component annotation", ParseableProperty.TEMPLATE), e);

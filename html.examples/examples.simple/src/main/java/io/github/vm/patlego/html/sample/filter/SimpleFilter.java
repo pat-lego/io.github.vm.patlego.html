@@ -21,7 +21,7 @@ import io.github.vm.patlego.html.core.filter.AbstractFilter;
 import io.github.vm.patlego.html.core.parser.ParseableLoader;
 import io.github.vm.patlego.html.core.parser.SimpleMustacheParser;
 import io.github.vm.patlego.html.core.parser.builder.MustacheParserBuilder;
-import io.github.vm.patlego.html.core.parser.impl.BundleContextParseableLoader;
+import io.github.vm.patlego.html.core.parser.parseable.BundleContextParseableLoader;
 
 public class SimpleFilter extends AbstractFilter {
 
