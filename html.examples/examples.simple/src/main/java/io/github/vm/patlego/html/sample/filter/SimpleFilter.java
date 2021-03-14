@@ -61,7 +61,7 @@ public class SimpleFilter extends AbstractFilter {
             responseWriter.write(templatedResponse);
             
         } catch (Exception e) {
-            logger.error("Caught Exception ", e);
+            logger.error("Caught an exception when filtering the page transformation ", e);
         }
     }
 
