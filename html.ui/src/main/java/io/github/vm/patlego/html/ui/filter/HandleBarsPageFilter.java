@@ -35,12 +35,9 @@ public class HandleBarsPageFilter extends AbstractFilter {
     public void template(HttpServletRequest request, HttpServletResponse response) {
         try {
             URL requestURL = new URL(request.getRequestURL().toString());
-            String path = requestURL.getPath().replace(CONTEXT_PATH, StringUtils.EMPTY).replace(HTML_EXTENSION,
-                    StringUtils.EMPTY);
+            String path = requestURL.getPath().replace(CONTEXT_PATH, StringUtils.EMPTY);
 
-            if (path.equals(StringUtils.EMPTY)) {
-                path = "index";
-            }
+            path = getValidUrlPath(path);
 
             BundleContext context = (BundleContext) request.getServletContext().getAttribute("osgi-bundlecontext");
 
@@ -59,6 +56,24 @@ public class HandleBarsPageFilter extends AbstractFilter {
 
         } catch (Exception e) {
             logger.error("Caught an exception when filtering the page transformation ", e);
+        }
+
+    }
+
+    public String getValidUrlPath(String path) {
+
+        if (path.contains(HTML_EXTENSION)) {
+            return path.replace(HTML_EXTENSION, StringUtils.EMPTY);
+        }
+
+        if (path.isEmpty()) {
+            return "index";
+        }
+
+        if (path.endsWith("/"))  {
+            return String.format("%sindex", path);
+        } else {
+            return String.format("%s/index", path);
         }
 
     }

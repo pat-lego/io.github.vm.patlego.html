@@ -1,5 +1,5 @@
 var app = Vue.createApp({
-    created() {
+    setup() {
         console.log("Vue has been created")
     }
 })
