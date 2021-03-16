@@ -4,7 +4,6 @@
 <head>
     <title>Page Editor</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/vue@3.0.7"></script>
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -22,10 +21,12 @@
     {{>WEB-INF/components/header}}
 
     <!-- Main Section -->
-    <section class="flex-grow w-full">
+    <section id="pages-app" class="flex-grow w-full">
     </section>
 
     {{>WEB-INF/components/footer}}
+
+    <script src="https://unpkg.com/vue@3.0.7/dist/vue.global.prod.js"></script>
 
 </body>
 
