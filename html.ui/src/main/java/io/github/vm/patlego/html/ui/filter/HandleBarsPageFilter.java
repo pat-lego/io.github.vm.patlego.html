@@ -34,8 +34,13 @@ public class HandleBarsPageFilter extends AbstractFilter {
     @Override
     public void template(HttpServletRequest request, HttpServletResponse response) {
         try {
+            
             URL requestURL = new URL(request.getRequestURL().toString());
             String path = requestURL.getPath().replace(CONTEXT_PATH, StringUtils.EMPTY);
+
+            if (Boolean.FALSE.equals(isValid(path))) {
+                return;
+            }
 
             path = getValidUrlPath(path);
 
@@ -58,6 +63,14 @@ public class HandleBarsPageFilter extends AbstractFilter {
             logger.error("Caught an exception when filtering the page transformation ", e);
         }
 
+    }
+
+    public Boolean isValid(String path) {
+        if (path.toLowerCase().endsWith("js") || path.toLowerCase().endsWith("css"))  {
+            return Boolean.FALSE;
+        }
+
+        return Boolean.TRUE;
     }
 
     public String getValidUrlPath(String path) {
